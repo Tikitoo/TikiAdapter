@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.novoda.bintray-release'
+
+
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+}
+
+//添加
+publish {
+    userOrg = 'maoqitian'//bintray.com用户名
+    repoName = 'TikiAdapter'   // bintray上仓库的名字
+    groupId = 'cat.tiki'//jcenter上的路径
+    artifactId = 'TikiAdapter'//项目名称
+    publishVersion = '0.1.0'//版本号
+    desc = 'It is a simple and easy to use kotlin RecyclerView adapter'// 描述
+    website = 'https://github.com/tikitoo/TikiAdapter'//一般填github 项目地址,一定是要有效的地址
+}
+
+// ./gradlew clean build bintrayUpload -PbintrayUser=tikitoo -PbintrayKey=b172123c428e368cf395c005eaeee85686ee0419 -PdryRun=false
