@@ -3,6 +3,7 @@ package cat.tiki.tikiadapter
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,14 +16,23 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
  * getItemCount
  * Created by Yifa Liang on 2019-08-20.
  */
-class KotlinBaseRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<KotlinBaseVH<T>> {
+class TikiRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
+    View.OnClickListener {
+    override fun onClick(v: View?) {
+            v?.let {
+                itemClickListener?.onItemClick(it, v?.getTag() as Int)
+            }
+    }
 
     private var isWaterflow: Boolean = false
     var context: Context
     var dataList: MutableList<out T>
     var inflater: LayoutInflater
     // 布局文件layout 和Item 一一对应
-    var viewHolderBinder: HashMap<Int, KotlinBaseVHImpl<out T>> = HashMap()
+    var viewHolderBinder: HashMap<Int, TikiBaseVHImpl<out T>> = HashMap()
+    private var itemClickListener: TikiItemClickListener? = null
+
+
 
     constructor(context: Context, dataList: MutableList<out T>) : super() {
         this.context = context
@@ -30,19 +40,26 @@ class KotlinBaseRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<KotlinBaseV
         this.dataList = dataList
     }
 
-    fun registerItem(layoutItemType: Int, vhImpl: KotlinBaseVHImpl<out T>) {
+
+    fun setOnItemClick(itemClickListener: TikiItemClickListener) {
+        this.itemClickListener = itemClickListener
+    }
+
+    fun registerItem(layoutItemType: Int, vhImpl: TikiBaseVHImpl<out T>) {
         viewHolderBinder?.put(layoutItemType, vhImpl)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KotlinBaseVH<T> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TikiBaseVH<T> {
         val rootView = inflater?.inflate(viewType, parent, false)
         val vhImpl = viewHolderBinder?.get(viewType)
-        return KotlinBaseVH(rootView, vhImpl)
+        rootView.setOnClickListener(this)
+        return TikiBaseVH(rootView, vhImpl)
     }
 
-    override fun onBindViewHolder(holder: KotlinBaseVH<T>, position: Int) {
+    override fun onBindViewHolder(holder: TikiBaseVH<T>, position: Int) {
         holder?.apply {
             val item = getItem(position)
+            view?.setTag(position)
             bindData(item)
         }
     }
@@ -72,7 +89,7 @@ class KotlinBaseRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<KotlinBaseV
             if (isWaterflow) {
                 setSatggerLayoutManager(this)
             } else {
-                val lm = GridLayoutManager(this@KotlinBaseRvAdapter.context, 6)
+                val lm = GridLayoutManager(this@TikiRvAdapter.context, 6)
                 lm.apply {
                     spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                         override fun getSpanSize(position: Int): Int {
@@ -84,7 +101,7 @@ class KotlinBaseRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<KotlinBaseV
                 layoutManager = lm
             }
             val kotlinBaseItemDecoration =
-                KotlinBaseItemDecoration(isWaterflow, this@KotlinBaseRvAdapter)
+                TikiBaseItemDecoration(isWaterflow, this@TikiRvAdapter)
             addItemDecoration(kotlinBaseItemDecoration)
 
         }

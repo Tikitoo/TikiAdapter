@@ -6,7 +6,7 @@
               android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/biz_show_item_customlist_txt_title_tv"
+        android:id="@+id/item_customlist_txt_title_tv"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"

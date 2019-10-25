@@ -5,7 +5,7 @@
               android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/biz_show_activity_custom_list_rcv"
+            android:id="@+id/activity_tiki_rcv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:overScrollMode="never"

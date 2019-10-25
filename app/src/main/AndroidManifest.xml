@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cat.tiki.sample">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
+        android:name=".TikiContext"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +22,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".adapter.KotlinCustomListActivity" />
+        <activity android:name=".adapter.list.TikiCustomListActivity" />
+        <activity android:name=".adapter.waterflow.TikiWaterflowActivity" />
+        <activity android:name=".adapter.jd.JDDetailActivity" />
+
+
     </application>
 
 </manifest>

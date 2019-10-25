@@ -1,4 +1,4 @@
-package cat.tiki.sample.adapter
+package cat.tiki.sample.adapter.list
 
 import android.os.Parcelable
 import androidx.annotation.Keep
@@ -10,7 +10,7 @@ import cat.tiki.tikiadapter.KotlinBaseModel
  */
 @Parcelize
 @Keep
-class KotlinCustomTxt(
+class TikiCustomTxt(
         override var layoutId: Int = 0,
         override var column: Int = 1,
         var title: String
