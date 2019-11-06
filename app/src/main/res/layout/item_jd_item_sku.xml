@@ -9,23 +9,27 @@
         android:id="@+id/item_jd_item_sku_tag_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
         android:textStyle="normal"
         tools:text="@string/test_title"
-    />
+        android:textColor="#333333"
+        />
 
 
     <TextView
         android:id="@+id/item_jd_item_sku_content_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:textStyle="normal"
-        tools:text="@string/test_title"
         />
 
     <ImageView
         android:id="@+id/item_jd_item_sku_click_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/drawable_jd_star_normal"
+        android:paddingRight="15dp"
         />
 
 </LinearLayout>

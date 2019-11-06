@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Keep
-open class KotlinBaseModel(open val column: Int = 1, open val layoutId: Int = 0) : Parcelable {
+open class KotlinBaseModel(open var column: Int = 1, open var layoutId: Int = 0) : Parcelable {
     open var margin: Int = 0
     open var imgWidth: Int = 0
     open var imgHeight: Int = 0

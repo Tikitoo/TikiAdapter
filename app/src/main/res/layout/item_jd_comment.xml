@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/item_jd_comment_avatar_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/color_black"
+        />
+
+    <TextView
+        android:id="@+id/item_jd_comment_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_black"
+        android:layout_toRightOf="@+id/item_jd_comment_avatar_img"
+        android:textSize="16dp"
+        android:textStyle="normal"
+        tools:text="Tikitoo"
+        />
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/item_jd_comment_ratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_toRightOf="@+id/item_jd_comment_avatar_img"
+        android:layout_below="@+id/item_jd_comment_name_tv"
+        android:minWidth="12dp"
+        android:numStars="5"
+        android:rating="4"
+        android:stepSize="0.1"
+        />
+
+    <TextView
+        android:id="@+id/item_jd_comment_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/color_black"
+        android:layout_below="@+id/item_jd_comment_avatar_img"
+        android:textSize="14dp"
+        android:lineSpacingExtra="4dp"
+        tools:text="这是一条长长的评论，这个手机太好用了。屏幕看久了也非常舒服，而且还有三摄摄像头，可以拍摄各种场景"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/item_jd_comment_imglist_rcv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_jd_comment_content_tv"
+        />
+
+    <TextView
+        android:id="@+id/item_jd_comment_model_name_tv"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_gray"
+        android:layout_below="@+id/item_jd_comment_imglist_rcv"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        tools:text="Tikitoo"
+        />
+
+</RelativeLayout>

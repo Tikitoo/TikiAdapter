@@ -24,6 +24,7 @@ class TikiRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
             }
     }
 
+    private var orientation: Int = RecyclerView.VERTICAL
     private var isWaterflow: Boolean = false
     var context: Context
     var dataList: MutableList<out T>
@@ -82,6 +83,10 @@ class TikiRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
     }
 
 
+    open fun setOrientation(orientation: Int) {
+        this.orientation = orientation
+    }
+
     open fun setRvConfig(isWaterflow: Boolean = false, recyclerView: RecyclerView?) {
         this.isWaterflow = isWaterflow
         recyclerView?.apply {
@@ -90,6 +95,7 @@ class TikiRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
                 setSatggerLayoutManager(this)
             } else {
                 val lm = GridLayoutManager(this@TikiRvAdapter.context, 6)
+                lm.orientation = orientation
                 lm.apply {
                     spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                         override fun getSpanSize(position: Int): Int {

@@ -28,41 +28,59 @@ data class JDBanner(
         var content: String = ""
         var price: Float = 0.0f
 
-
 }
 
 
 // Sku 选择
 data class JDSku(
     override var layoutId: Int = 0,
-    override var column: Int = 1
-    ): KotlinBaseModel(column, layoutId), Parcelable  {
+    override var column: Int = 1,
+    val typeStr: String,
+    val content: String
+): KotlinBaseModel(column, layoutId), Parcelable  {
+    var isShowMore: Boolean = false
+    var tag: String = ""
+    var tagImg: String = ""
+    var tagImgResId: Int = 0
 
     }
 
 // 评论
 class JDComment(
     override var layoutId: Int = 0,
-    override var column: Int = 1
-    ): KotlinBaseModel(column, layoutId), Parcelable  {
+    override var column: Int = 1,
+    val avatar: String,
+    val name: String,
+    val ratingNum: Int,
+    val content: String,
+    val imgList: MutableList<TikiBaseImg>,
+    val modelName: String
+): KotlinBaseModel(column, layoutId), Parcelable  {
 
     }
 
 // 介绍的标题
 class JDTitle(
     override var layoutId: Int = 0,
-    override var column: Int = 1
-    ): KotlinBaseModel(column, layoutId), Parcelable  {
+    override var column: Int = 1,
+    val typeStr: String
+): KotlinBaseModel(column, layoutId), Parcelable  {
+    var content: String = ""
+    var rightStr: String = ""
+    var isShowRightIcon: Boolean = false
 
     }
 
 // 推荐的商品
 class JDItemGoods(
     override var layoutId: Int = 0,
-    override var column: Int = 1
-    ): KotlinBaseModel(column, layoutId), Parcelable  {
+    override var column: Int = 1,
+    val img: TikiBaseImg
+): KotlinBaseModel(column, layoutId), Parcelable  {
+    var content: String = ""
+    var price: Float = 0f
 
-    }
+}
 
 
 

@@ -3,10 +3,10 @@
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
+
     <ImageView
-        android:id="@+id/item_jd_goods_img"
+        android:id="@+id/item_jd_item_comment_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
-
 </LinearLayout>

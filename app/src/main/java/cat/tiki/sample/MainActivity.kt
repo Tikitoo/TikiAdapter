@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
         mainList = mutableListOf<MainModel>()
         mainList.add(MainModel(TYPE_TXt, 3, "网格布局", IntentType.TYPE_GRID))
         mainList.add(MainModel(TYPE_TXt, 3, "瀑布流布局", IntentType.TYPE_WATERFLOW))
-//        mainList.add(MainModel(TYPE_TXt, 3, "京东商品详细页", IntentType.TYPE_JD_DETAIL))
+        mainList.add(MainModel(TYPE_TXt, 3, "京东商品详细页", IntentType.TYPE_JD_DETAIL))
 
         for (mainModel in mainList) {
             mainModel.rect?.apply {
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
         when(intentType) {
             IntentType.TYPE_GRID -> { cls = TikiCustomListActivity::class.java as Class<Any>?}
             IntentType.TYPE_WATERFLOW -> { cls = TikiWaterflowActivity::class.java as Class<Any>?}
-//            IntentType.TYPE_JD_DETAIL -> { cls = JDDetailActivity::class.java as Class<Any>?}
+            IntentType.TYPE_JD_DETAIL -> { cls = JDDetailActivity::class.java as Class<Any>?}
 
         }
 
