@@ -1,2 +1,2 @@
-include ':app', ':tikiadapter'
+include ':app', ':tikiadapter', ':tikirefresh'
 rootProject.name='TikiSamples'
