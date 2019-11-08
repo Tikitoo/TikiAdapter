@@ -14,24 +14,24 @@ import cat.tiki.tikirefresh.R;
 
 
 /**
- * Created by Yifa Liang on 2017/12/28.
+ * Created by Tikitoo on 2019-11-07.
  */
 
-public class LoadMoreCircleFooter extends LinearLayout {
+public class TikiLoadMoreCircleFooter extends LinearLayout {
 
     protected View rootView;
     protected ProgressBar mLoadmoreProgressBarView;
     protected RelativeLayout mLoadmoreLayout;
 
-    public LoadMoreCircleFooter(Context context) {
+    public TikiLoadMoreCircleFooter(Context context) {
         this(context, null);
     }
 
-    public LoadMoreCircleFooter(Context context, @Nullable AttributeSet attrs) {
+    public TikiLoadMoreCircleFooter(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public LoadMoreCircleFooter(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public TikiLoadMoreCircleFooter(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }

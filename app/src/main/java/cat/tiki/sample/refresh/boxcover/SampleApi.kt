@@ -1,7 +1,7 @@
 package cat.tiki.sample.refresh.boxcover
 
 import androidx.lifecycle.LiveData
-import cat.tiki.tikirefresh.ApiResponse
+import cat.tiki.tikirefresh.TikiApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface SampleApi {
     @GET("/app/subject")
     fun getTopicList(@Query("page") page:Int = 1,
-                     @Query("tagId")tagId:Int): LiveData<ApiResponse<KotlinSubject>>
+                     @Query("tagId")tagId:Int): LiveData<TikiApiResponse<KotlinSubject>>
 
 
 }

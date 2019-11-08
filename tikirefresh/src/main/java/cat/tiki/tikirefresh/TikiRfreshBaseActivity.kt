@@ -9,14 +9,13 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.tikiadapter.TikiRvAdapter
-import cat.tiki.tikirefresh.widget.LoadMoreCircleFooter
+import cat.tiki.tikirefresh.widget.TikiLoadMoreCircleFooter
 import cat.tiki.tikirefresh.widget.TikiErrorView
 import kotlinx.android.synthetic.main.lib_arch_activity_kotlin_base.*
 import cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
-import kotlinx.android.synthetic.main.lib_widget_smart_refresh_layout.view.*
 
 /**
- * Created by Yifa Liang on 2019-11-06.
+ * Created by Tikitoo on 2019-11-07.
  */
 open abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppCompatActivity(), TikiSmartRefreshLayout.Callback {
 
@@ -26,7 +25,7 @@ open abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppC
     open val viewModel: VM? = null
     lateinit var refreshType: TikiBaseViewModel.RefreshType
     //    var loadingView = biz_show_kotlin_base_loading_view
-    private var loadingView: LoadMoreCircleFooter? = null
+    private var loadingView: TikiLoadMoreCircleFooter? = null
     private var errorView: TikiErrorView? = null
     var recyclerView: RecyclerView? = null
 
@@ -138,7 +137,7 @@ open abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppC
             val layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
             )
-            loadingView = LoadMoreCircleFooter(this)
+            loadingView = TikiLoadMoreCircleFooter(this)
             loadingView?.setOnClickListener{
 
             }
@@ -157,7 +156,7 @@ open abstract class TikiBaseRefreshActivity<M: Any, VM: TikiBaseViewModel>: AppC
 
 
     abstract fun onSuccCallback(body: M)
-    abstract fun createLiveData(): LiveData<ApiResponse<M>>?
+    abstract fun createLiveData(): LiveData<TikiApiResponse<M>>?
 
 
 }

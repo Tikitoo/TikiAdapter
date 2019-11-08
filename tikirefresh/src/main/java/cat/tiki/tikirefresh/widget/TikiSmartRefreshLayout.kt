@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.lib_widget_smart_refresh_layout.view.*
 
 
 /**
- * Created by Yifa Liang on 2019-11-07.
+ * Created by Tikitoo on 2019-11-07.
  */
 open class TikiSmartRefreshLayout : RelativeLayout {
 

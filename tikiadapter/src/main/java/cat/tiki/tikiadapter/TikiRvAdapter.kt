@@ -1,16 +1,13 @@
 package cat.tiki.tikiadapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import kotlin.comparisons.nullsFirst as nullsFirst1
 
 /**
  * Tiki 封装RecyclerView 通用Adapter

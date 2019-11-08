@@ -6,14 +6,8 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import java.io.IOException
-import java.security.KeyStore
-import java.security.SecureRandom
-import java.security.cert.CertificateFactory
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManagerFactory
 
-class RetrofitClient {
+class TikiRetrofitClient {
 
     fun getRetrofit(): Retrofit {
         val moshi = Moshi.Builder()
@@ -24,7 +18,7 @@ class RetrofitClient {
         return Retrofit.Builder()
                 .baseUrl(HTTPS_API_HOST)
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
-                .addCallAdapterFactory(LiveDataCallAdapterFactory())
+                .addCallAdapterFactory(TikiLiveDataCallAdapterFactory())
                 .callFactory(getOkHttpClient())
             .build()
     }

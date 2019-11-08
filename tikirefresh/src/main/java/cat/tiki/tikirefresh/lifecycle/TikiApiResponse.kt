@@ -4,9 +4,9 @@ import retrofit2.Response
 
 internal const val UNKNOWN_CODE = -1
 
-sealed class ApiResponse<T> {
+sealed class TikiApiResponse<T> {
     companion object {
-        fun <T> create(response: Response<T>): ApiResponse<T> {
+        fun <T> create(response: Response<T>): TikiApiResponse<T> {
             return if (response.isSuccessful) {
                 val body = response.body()
                 if (body == null || response.code() == 204) {
@@ -25,6 +25,6 @@ sealed class ApiResponse<T> {
     }
 }
 
-class  ApiEmptyResponse<T> : ApiResponse<T>()
-data class ApiErrorResponse<T>(val errorCode: Int, val errorMessage: String): ApiResponse<T>()
-data class ApiSuccessResponse<T>(val body: T): ApiResponse<T>()
+class  ApiEmptyResponse<T> : TikiApiResponse<T>()
+data class ApiErrorResponse<T>(val errorCode: Int, val errorMessage: String): TikiApiResponse<T>()
+data class ApiSuccessResponse<T>(val body: T): TikiApiResponse<T>()

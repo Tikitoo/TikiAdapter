@@ -20,7 +20,7 @@ import cat.tiki.tikirefresh.R;
 
 
 /**
- * Created by lizhongwen@zaozuo.com on 16/8/29.
+ * Created by Tikitoo on 2019-11-07.
  */
 public class TikiErrorView extends LinearLayout {
     protected ImageView libWidgetIvImage;

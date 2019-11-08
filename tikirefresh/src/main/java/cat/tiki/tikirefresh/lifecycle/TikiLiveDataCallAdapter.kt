@@ -8,9 +8,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.lang.reflect.Type
 
-class LiveDataCallAdapter<R>(private val responseType: Type): CallAdapter<R, LiveData<ApiResponse<R>>> {
-    override fun adapt(call: Call<R>): LiveData<ApiResponse<R>> {
-        return object : LiveData<ApiResponse<R>>() {
+class TikiLiveDataCallAdapter<R>(private val responseType: Type): CallAdapter<R, LiveData<TikiApiResponse<R>>> {
+    override fun adapt(call: Call<R>): LiveData<TikiApiResponse<R>> {
+        return object : LiveData<TikiApiResponse<R>>() {
             private var isSuccess = false
 
             override fun onActive() {
@@ -30,11 +30,11 @@ class LiveDataCallAdapter<R>(private val responseType: Type): CallAdapter<R, Liv
             private fun enqueue() {
                 call.enqueue(object : Callback<R> {
                     override fun onFailure(call: Call<R>, t: Throwable) {
-                        postValue(ApiResponse.create(UNKNOWN_CODE, t))
+                        postValue(TikiApiResponse.create(UNKNOWN_CODE, t))
                     }
 
                     override fun onResponse(call: Call<R>, response: Response<R>) {
-                        postValue(ApiResponse.create(response))
+                        postValue(TikiApiResponse.create(response))
                         isSuccess = true
                     }
                 })

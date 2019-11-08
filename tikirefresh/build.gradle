@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.novoda.bintray-release'
 
 
 android {
@@ -30,7 +31,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-
 }
 
 dependencies {
@@ -40,12 +40,12 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
-    api project(':tikiadapter')
-//    implementation 'cat.tiki:tikiadapter:0.1.5'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+//    api project(':tikiadapter')
+    api 'cat.tiki:tikiadapter:0.1.5'
 
-    api "com.squareup.okhttp3:okhttp:$okhttp_version"
-    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
 
     // moshi
     api "com.squareup.moshi:moshi-kotlin:1.8.0"
@@ -58,5 +58,19 @@ dependencies {
     api "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
     api "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
 
-
 }
+
+
+//添加
+publish {
+    userOrg = 'tikitoo'//bintray.com用户名
+//    repoName = 'TikiRefresh'   // bintray上仓库的名字
+    groupId = 'cat.tiki'//jcenter上的路径
+    artifactId = 'tikirefresh'//项目名称
+    publishVersion = '0.1.0'//版本号
+    desc = 'It is a simple and easy to refresh & loadmore packaging framework'// 描述
+    website = 'https://github.com/tikitoo/TikiRefresh'//一般填github 项目地址,一定是要有效的地址
+}
+
+// ./gradlew clean build bintrayUpload -PbintrayUser=tikitoo -PbintrayKey= -PdryRun=false
+

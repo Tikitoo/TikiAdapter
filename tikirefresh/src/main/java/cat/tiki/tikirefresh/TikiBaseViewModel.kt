@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 
 /**
  * T 做一个基类
- * Created by Yifa Liang on 2019-08-22.
+ * Created by Tikitoo on 2019-11-07.
  */
 open class TikiBaseViewModel : ViewModel {
     open var refreshType: RefreshType =
@@ -16,7 +16,7 @@ open class TikiBaseViewModel : ViewModel {
 
     companion object {
         open fun <S> getService(service: Class<S>): S {
-            return RetrofitClient().getRetrofit().create(service)
+            return TikiRetrofitClient().getRetrofit().create(service)
         }
     }
 

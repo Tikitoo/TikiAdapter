@@ -1,4 +1,4 @@
-package cat.tiki.sample.refresh.boxcover
+package cat.tiki.tikirefresh.extension
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

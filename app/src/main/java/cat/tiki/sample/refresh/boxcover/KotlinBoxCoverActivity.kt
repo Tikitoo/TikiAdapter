@@ -6,7 +6,8 @@ import cat.tiki.sample.R
 import cat.tiki.tikirefresh.TikiBaseRefreshActivity
 import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.sample.extendsion.dip2px
-import cat.tiki.tikirefresh.ApiResponse
+import cat.tiki.tikirefresh.TikiApiResponse
+import cat.tiki.tikirefresh.extension.viewModel
 
 /**
  * Created by Yifa Liang on 2019-08-21.
@@ -59,7 +60,7 @@ class KotlinBoxCoverActivity: TikiBaseRefreshActivity<KotlinSubject, KotlinBoxCo
         }
     }
 
-    override fun createLiveData(): LiveData<ApiResponse<KotlinSubject>>? {
+    override fun createLiveData(): LiveData<TikiApiResponse<KotlinSubject>>? {
         return viewModel.topicListModel
     }
 

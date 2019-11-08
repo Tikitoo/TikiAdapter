@@ -34,8 +34,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-//    implementation project(':tikiadapter')
     implementation project(':tikirefresh')
+//    implementation project(':tikiadapter')
 //    implementation 'cat.tiki:tikiadapter:0.1.5'
 
 
