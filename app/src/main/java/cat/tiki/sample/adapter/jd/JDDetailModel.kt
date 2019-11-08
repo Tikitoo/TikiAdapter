@@ -4,7 +4,7 @@ import android.os.Parcelable
 import androidx.annotation.Keep
 import cat.tiki.tikiadapter.TikiBaseImg
 import kotlinx.android.parcel.Parcelize
-import cat.tiki.tikiadapter.KotlinBaseModel
+import cat.tiki.tikiadapter.TikiBaseModel
 
 /**
  * Created by Yifa Liang on 2019-09-16.
@@ -15,7 +15,7 @@ data class JDDetailModel(
 override var layoutId: Int = 0,
 override var column: Int = 1,
 var title: String
-) : KotlinBaseModel(column, layoutId), Parcelable {
+) : TikiBaseModel(column, layoutId), Parcelable {
 }
 
 // 顶部图片轮滑介绍
@@ -23,7 +23,7 @@ data class JDBanner(
     override var layoutId: Int = 0,
     override var column: Int = 1,
     val imgList: MutableList<TikiBaseImg>
-    ): KotlinBaseModel(column, layoutId), Parcelable  {
+    ): TikiBaseModel(column, layoutId), Parcelable  {
         lateinit var title: String
         var content: String = ""
         var price: Float = 0.0f
@@ -37,7 +37,7 @@ data class JDSku(
     override var column: Int = 1,
     val typeStr: String,
     val content: String
-): KotlinBaseModel(column, layoutId), Parcelable  {
+): TikiBaseModel(column, layoutId), Parcelable  {
     var isShowMore: Boolean = false
     var tag: String = ""
     var tagImg: String = ""
@@ -55,7 +55,7 @@ class JDComment(
     val content: String,
     val imgList: MutableList<TikiBaseImg>,
     val modelName: String
-): KotlinBaseModel(column, layoutId), Parcelable  {
+): TikiBaseModel(column, layoutId), Parcelable  {
 
     }
 
@@ -64,7 +64,7 @@ class JDTitle(
     override var layoutId: Int = 0,
     override var column: Int = 1,
     val typeStr: String
-): KotlinBaseModel(column, layoutId), Parcelable  {
+): TikiBaseModel(column, layoutId), Parcelable  {
     var content: String = ""
     var rightStr: String = ""
     var isShowRightIcon: Boolean = false
@@ -76,7 +76,7 @@ class JDItemGoods(
     override var layoutId: Int = 0,
     override var column: Int = 1,
     val img: TikiBaseImg
-): KotlinBaseModel(column, layoutId), Parcelable  {
+): TikiBaseModel(column, layoutId), Parcelable  {
     var content: String = ""
     var price: Float = 0f
 

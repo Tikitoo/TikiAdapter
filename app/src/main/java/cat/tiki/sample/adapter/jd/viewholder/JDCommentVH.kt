@@ -9,7 +9,7 @@ import cat.tiki.sample.extendsion.load
 import cat.tiki.tikiadapter.TikiBaseImg
 import cat.tiki.tikiadapter.TikiBaseVHImpl
 import cat.tiki.tikiadapter.TikiRvAdapter
-import cat.tiki.tikiadapter.extendsion.dip2px
+import cat.tiki.sample.extendsion.dip2px
 import kotlinx.android.synthetic.main.item_jd_comment.view.*
 
 /**
@@ -25,7 +25,7 @@ class JDCommentVH: TikiBaseVHImpl<JDComment>() {
         var modelNameTv = view.item_jd_comment_model_name_tv
 
         data?.apply {
-            var dp50 = dip2px(TikiContext.getContext(), 50f)
+            var dp50 = dip2px(50f)
             avatarImg.load(avatar, dp50, dp50)
             nameTv.text = name
             ratingBar.rating = ratingNum?.toFloat()
@@ -43,8 +43,7 @@ class JDCommentVH: TikiBaseVHImpl<JDComment>() {
             tikiBaseImg?.apply {
                 layoutId = JD_COMMENT_IMG
                 column = 1
-                rect.center = dip2px(TikiContext.getContext(), 5f)
-
+                rect.center = dip2px(5f)
             }
         }
 

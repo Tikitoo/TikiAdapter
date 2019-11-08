@@ -4,7 +4,7 @@ import android.os.Parcelable
 import androidx.annotation.Keep
 import cat.tiki.tikiadapter.TikiBaseImg
 import kotlinx.android.parcel.Parcelize
-import cat.tiki.tikiadapter.KotlinBaseModel
+import cat.tiki.tikiadapter.TikiBaseModel
 
 /**
  * Created by Yifa Liang on 2019-09-16.
@@ -15,7 +15,7 @@ class TikiWaterflowTxt(
     override var layoutId: Int = 0,
     override var column: Int = 1,
     var title: String
-) : KotlinBaseModel(column, layoutId), Parcelable {
+) : TikiBaseModel(column, layoutId), Parcelable {
 
 
 

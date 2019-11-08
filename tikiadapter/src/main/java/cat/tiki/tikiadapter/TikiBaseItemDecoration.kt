@@ -10,17 +10,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 /**
  * Created by Yifa Liang on 2019-09-06.
  */
-class TikiBaseItemDecoration<T : KotlinBaseModel>(val isWaterflow: Boolean, val rvAdapter: TikiRvAdapter<T>): RecyclerView.ItemDecoration() {
-
-    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-        super.onDraw(c, parent, state)
-    }
-
-    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-        super.onDrawOver(c, parent, state)
-    }
+class TikiBaseItemDecoration<T : TikiBaseModel>(val isWaterflow: Boolean, val rvAdapter: TikiRvAdapter<T>): RecyclerView.ItemDecoration() {
 
     var flagIndex: Int = 0
+
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
         val position = (view.layoutParams as RecyclerView.LayoutParams).viewAdapterPosition

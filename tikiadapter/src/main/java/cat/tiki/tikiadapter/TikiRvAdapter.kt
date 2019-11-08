@@ -5,23 +5,27 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import kotlin.comparisons.nullsFirst as nullsFirst1
 
 /**
+ * Tiki 封装RecyclerView 通用Adapter
  * onBindViewHolder
  * onCreateViewHolder
  * getItemCount
  * Created by Yifa Liang on 2019-08-20.
  */
-class TikiRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
+class TikiRvAdapter<T: TikiBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
     View.OnClickListener {
+
     override fun onClick(v: View?) {
-            v?.let {
-                itemClickListener?.onItemClick(it, v?.getTag() as Int)
-            }
+        v?.let {
+            itemClickListener?.onItemClick(it, v?.getTag() as Int)
+        }
     }
 
     private var orientation: Int = RecyclerView.VERTICAL
@@ -33,14 +37,11 @@ class TikiRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
     var viewHolderBinder: HashMap<Int, TikiBaseVHImpl<out T>> = HashMap()
     private var itemClickListener: TikiItemClickListener? = null
 
-
-
     constructor(context: Context, dataList: MutableList<out T>) : super() {
         this.context = context
         this.inflater = LayoutInflater.from(context)
         this.dataList = dataList
     }
-
 
     fun setOnItemClick(itemClickListener: TikiItemClickListener) {
         this.itemClickListener = itemClickListener
@@ -77,9 +78,11 @@ class TikiRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
         return dataList?.size
     }
 
-    open fun getItem(position: Int): T {
-        val data = dataList?.get(position)
-        return data
+    open inline fun getItem(position: Int): T {
+        if (position >= 0 && position < dataList?.size) {
+           return dataList?.get(position)
+        }
+        return TikiBaseModel() as T
     }
 
 
@@ -114,7 +117,7 @@ class TikiRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
 
     }
 
-    var isItemLoadMore: Boolean = false
+    private var isItemLoadMore: Boolean = false
 
     fun getStaggeredGridLM(spantCount: Int): StaggeredGridLayoutManager {
 //        this.isStaaggerMixing = true
@@ -126,9 +129,8 @@ class TikiRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
 
     private fun setSatggerLayoutManager(recyclerView: RecyclerView) {
         val staggeredGridLM = getStaggeredGridLM(2)
-        recyclerView.setLayoutManager(staggeredGridLM)
-//        recyclerView.setItemAnimator(null);
-        (recyclerView.getItemAnimator() as SimpleItemAnimator).supportsChangeAnimations = false
+        recyclerView.layoutManager = staggeredGridLM
+        (recyclerView?.itemAnimator as SimpleItemAnimator)?.supportsChangeAnimations = false
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
@@ -142,8 +144,8 @@ class TikiRvAdapter<T: KotlinBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
                     val layoutManager = recyclerView.layoutManager as StaggeredGridLayoutManager?
                     var firstVisibleItem: IntArray? = null
                     firstVisibleItem = layoutManager!!.findFirstVisibleItemPositions(firstVisibleItem)
-                    Log.d("adapter", "firstVisibleItem: " + firstVisibleItem!![0] + " ： " + firstVisibleItem[1])
-                    if (firstVisibleItem != null && firstVisibleItem[0] == 0/* || firstVisibleItem[0] == 1*/) {
+//                    Log.d("adapter", "firstVisibleItem: " + firstVisibleItem!![0] + " ： " + firstVisibleItem[1])
+                    if (firstVisibleItem != null && firstVisibleItem[0] == 0) {
                         isItemLoadMore = false
                         recyclerView.post { recyclerView.invalidateItemDecorations() }
 

@@ -5,8 +5,9 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
+    buildToolsVersion = '28.0.3'
     defaultConfig {
-        applicationId "tiki.cat.tikisamples"
+        applicationId "cat.tiki.samples"
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
@@ -23,12 +24,19 @@ android {
     androidExtensions {
         experimental = true
     }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':tikiadapter')
-//    implementation 'cat.tiki:tikiadapter:0.1.2'
+//    implementation project(':tikiadapter')
+    implementation project(':tikirefresh')
+//    implementation 'cat.tiki:tikiadapter:0.1.5'
 
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

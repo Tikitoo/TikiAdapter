@@ -8,16 +8,16 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Keep
-open class KotlinBaseModel(open var column: Int = 1, open var layoutId: Int = 0) : Parcelable {
+open class TikiBaseModel(open var column: Int = 1, open var layoutId: Int = 0) : Parcelable {
     open var margin: Int = 0
     open var imgWidth: Int = 0
     open var imgHeight: Int = 0
 
     open var rect: Rect = Rect(0, 0, 0, 0)
 
-    open var width: Float=0F
-    open var height: Float=0F
-    open var md5: String=""
+    open var width: Float= 0F
+    open var height: Float= 0F
+    open var md5: String= ""
 
     open fun setImgParams(context: Context) {
         var appWidth = getAppWidth(context)
@@ -46,10 +46,10 @@ open class KotlinBaseModel(open var column: Int = 1, open var layoutId: Int = 0)
 @Parcelize
 @Keep
 class Rect(
-        var center: Int,
-        var side: Int,
-        var top: Int,
-        var bottom: Int
+    var center: Int,
+    var side: Int,
+    var top: Int,
+    var bottom: Int
 ) : Parcelable {
 
 }
@@ -59,7 +59,7 @@ class Rect(
 open class TikiBaseImg(
     override var width: Float,
     override var height: Float,
-    override var md5: String) : KotlinBaseModel(), Parcelable {
+    override var md5: String) : TikiBaseModel(), Parcelable {
 
     fun getScale(): Float {
         if (width != 0f  && height != 0f) {
@@ -68,11 +68,5 @@ open class TikiBaseImg(
             return 1f
         }
     }
-
 }
 
-
-open interface KotlinBaseModel2 {
-    fun getLayoutId2(): Int
-
-}

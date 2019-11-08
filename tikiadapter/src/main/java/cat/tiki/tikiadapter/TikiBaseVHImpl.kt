@@ -7,7 +7,7 @@ import android.view.View
  */
 open abstract class TikiBaseVHImpl<T> {
 
-    open fun bindData(data: KotlinBaseModel, view: View) {
+    open fun bindData(data: TikiBaseModel, view: View) {
         val data = data as T
         bindData(data, view)
     }

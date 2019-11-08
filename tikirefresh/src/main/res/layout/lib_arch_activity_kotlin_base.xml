@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout
+        android:id="@+id/biz_show_kotlin_base_refresh_rv_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </cat.tiki.tikirefresh.widget.TikiSmartRefreshLayout>
+
+    <cat.tiki.tikirefresh.widget.TikiErrorView
+        android:id="@+id/biz_show_kotlin_base_error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+
+    <!--<com.zaozuo.lib.widget.loadingview.ZZLoadingView-->
+        <!--android:id="@+id/biz_show_kotlin_base_loading_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:visibility="gone"-->
+        <!--/>-->
+
+</RelativeLayout>

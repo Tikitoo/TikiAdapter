@@ -4,16 +4,16 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cat.tiki.sample.R
-import cat.tiki.tikiadapter.KotlinBaseModel
+import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.tikiadapter.TikiRvAdapter
 import kotlinx.android.synthetic.main.activity_tiki_recycler_view.*
-import cat.tiki.tikiadapter.extendsion.dip2px
+import cat.tiki.sample.extendsion.dip2px
 
 /**
  * Created by Yifa Liang on 2019-09-16.
  */
 class TikiWaterflowActivity: AppCompatActivity() {
-    var dataList: MutableList<KotlinBaseModel> = arrayListOf()
+    var dataList: MutableList<TikiBaseModel> = arrayListOf()
     lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,9 +25,9 @@ class TikiWaterflowActivity: AppCompatActivity() {
 
         for (kotlinBaseModel in dataList) {
             kotlinBaseModel?.apply {
-                rect.bottom = dip2px(context, 5F)
-                rect.center = dip2px(context, 5F)
-                rect.side = dip2px(context, 10F)
+                rect.bottom = dip2px(5F)
+                rect.center = dip2px(5F)
+                rect.side = dip2px(10F)
             }
         }
 

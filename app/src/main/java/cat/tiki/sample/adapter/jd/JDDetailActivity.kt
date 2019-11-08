@@ -5,12 +5,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cat.tiki.sample.R
 import cat.tiki.sample.adapter.jd.viewholder.*
-import cat.tiki.tikiadapter.KotlinBaseModel
+import cat.tiki.tikiadapter.TikiBaseModel
 import cat.tiki.tikiadapter.TikiBaseImg
 import cat.tiki.tikiadapter.TikiRvAdapter
 import kotlinx.android.synthetic.main.activity_tiki_recycler_view.*
-import cat.tiki.tikiadapter.extendsion.dip2px
-import kotlin.random.Random
+import cat.tiki.sample.extendsion.dip2px
 
 /**
  * banner 滚动
@@ -22,9 +21,9 @@ import kotlin.random.Random
  * Created by Yifa Liang on 2019-09-16.
  */
 class JDDetailActivity: AppCompatActivity() {
-    var dataList: MutableList<KotlinBaseModel> = arrayListOf()
+    var dataList: MutableList<TikiBaseModel> = arrayListOf()
     lateinit var context: Context
-    lateinit var rvAdapter: TikiRvAdapter<KotlinBaseModel>
+    lateinit var rvAdapter: TikiRvAdapter<TikiBaseModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,12 +35,12 @@ class JDDetailActivity: AppCompatActivity() {
 
         for (kotlinBaseModel in dataList) {
             kotlinBaseModel?.apply {
-                rect.bottom = dip2px(context, 15F)
-//                rect.center = dip2px(context, 5F)
-//                rect.side = dip2px(context, 10F)
+                rect.bottom = dip2px(15F)
+//                rect.center = dip2px(5F)
+//                rect.side = dip2px(10F)
                 if (Jd_ITEM_GOODS_RECOMMEND == layoutId) {
-                    rect.center = dip2px(context, 7f)
-                    rect.side = dip2px(context, 15f)
+                    rect.center = dip2px(7f)
+                    rect.side = dip2px(15f)
                 } else {
                     rect.center = 0
                     rect.side = 0
@@ -81,8 +80,8 @@ class JDDetailActivity: AppCompatActivity() {
     }
 
     object JDData {
-        open fun parseData(): MutableList<KotlinBaseModel> {
-            val modelList = mutableListOf<KotlinBaseModel>()
+        open fun parseData(): MutableList<TikiBaseModel> {
+            val modelList = mutableListOf<TikiBaseModel>()
             // banner
             val bannerImgList = mutableListOf<TikiBaseImg>()
             bannerImgList.add(TikiBaseImg(500f, 500f, bannerMd51))
