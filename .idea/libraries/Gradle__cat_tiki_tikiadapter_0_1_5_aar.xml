@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: cat.tiki:tikiadapter:0.1.5@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c7dd22e86588c0f9202dcd1e7d49aea7/tikiadapter-0.1.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c7dd22e86588c0f9202dcd1e7d49aea7/tikiadapter-0.1.5/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cat.tiki/tikiadapter/0.1.5/a0c8ed24892f8c29797da5a6020efec9a77c2064/tikiadapter-0.1.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cat.tiki/tikiadapter/0.1.5/26919c6b4a30718f863a2e2dbdc7a77a85e92246/tikiadapter-0.1.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/saas/TikiAdapter-saas.iml" filepath="$PROJECT_DIR$/saas/TikiAdapter-saas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tikirefresh/TikiAdapter-tikirefresh.iml" filepath="$PROJECT_DIR$/tikirefresh/TikiAdapter-tikirefresh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TikiSamples.iml" filepath="$PROJECT_DIR$/TikiSamples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/saas/android-TikiAdapter-saas.iml" filepath="$PROJECT_DIR$/saas/android-TikiAdapter-saas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tikirefresh/android-TikiAdapter-tikirefresh.iml" filepath="$PROJECT_DIR$/tikirefresh/android-TikiAdapter-tikirefresh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/saas/saas.iml" filepath="$PROJECT_DIR$/saas/saas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tikiadapter/tikiadapter.iml" filepath="$PROJECT_DIR$/tikiadapter/tikiadapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tikirefresh/tikirefresh.iml" filepath="$PROJECT_DIR$/tikirefresh/tikirefresh.iml" />
+    </modules>
+  </component>
+</project>

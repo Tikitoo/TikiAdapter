@@ -43,9 +43,6 @@ dependencies {
 //    implementation ('cat.tiki:tikirefresh:0.1.2') {
 //        exclude group: 'cat.tiki', module: 'tikiadapter'
 //    }
-//    implementation (project(':tikirefresh')) {
-//        exclude group: 'cat.tiki', module: 'tikiadapter'
-//    }
 
 //    implementation project(':tikiadapter')
     implementation 'cat.tiki:tikiadapter:0.1.5'
