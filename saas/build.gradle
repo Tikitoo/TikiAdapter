@@ -64,7 +64,9 @@ dependencies {
 //        exclude group: 'cat.tiki', module: 'tikiadapter'
 //    }
 
-    implementation project(':tikiadapter')
+//    implementation project(':tikiadapter')
+    implementation 'cat.tiki:tikiadapter:0.1.5'
+
 
     implementation 'com.zhihu.android:matisse:0.5.3-beta3'
 
