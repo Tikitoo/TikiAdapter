@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/activity_register_user_et"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="user"
+        />
+
+
+    <EditText
+        android:id="@+id/activity_register_pwd_et"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:lines="1"
+        android:maxLines="1"
+        android:hint="password"
+        />
+
+    <TextView
+        android:id="@+id/activity_register_register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/colorAccent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:textSize="16dp"
+        android:textStyle="normal"
+        android:lines="1"
+        android:maxLines="1"
+        android:text="register"
+        />
+
+</LinearLayout>

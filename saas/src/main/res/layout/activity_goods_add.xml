@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/activity_goods_add_name_et"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:singleLine="true"
+        android:hint="name"
+        />
+
+
+    <EditText
+        android:id="@+id/activity_goods_add_price_et"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:lines="1"
+        android:inputType="number"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:hint="price"
+        />
+
+    <EditText
+        android:id="@+id/activity_goods_add_desc_et"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:singleLine="true"
+        android:hint="desc"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/activity_goods_add_add_img"
+            android:layout_margin="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/menu_goods_add"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_goods_add_show_img_rcv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@+id/activity_goods_add_add_img"
+            />
+
+        <ImageView
+            android:id="@+id/activity_goods_add_show_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/activity_goods_add_add_img"
+            />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/activity_goods_add_add_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/colorAccent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:textSize="16dp"
+        android:textStyle="normal"
+        android:lines="1"
+        android:maxLines="1"
+        android:text="添加产品"
+        />
+
+</LinearLayout>
