@@ -13,4 +13,13 @@
         android:textSize="14dp"
         android:textStyle="normal"
         />
+
+    <TextView
+        android:id="@+id/main_txt_tv2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+
+        android:text="dfjaslfjasdljf"
+        />
 </LinearLayout>

@@ -2,6 +2,7 @@ package cat.tiki.sample.extendsion
 
 import android.graphics.Bitmap
 import android.widget.ImageView
+import cat.tiki.sample.GlideApp
 
 /**
  * Created by Yifa Liang on 2019-08-29.

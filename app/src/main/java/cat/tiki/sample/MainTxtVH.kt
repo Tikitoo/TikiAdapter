@@ -8,9 +8,14 @@ class MainTxtVH : TikiBaseVHImpl<MainEntity>() {
 
     override fun bindData(mainModel: MainEntity, view: View) {
         val mainTxtTv = view.main_txt_tv
+        val mainTxtTv2 = view.main_txt_tv2
         mainTxtTv.text = mainModel.txt
 
+        addClickView(mainTxtTv)
+        addClickView(mainTxtTv2)
     }
+
+
 
 
 }

@@ -25,7 +25,6 @@
         <activity android:name=".adapter.list.TikiCustomListActivity" />
         <activity android:name=".adapter.waterflow.TikiWaterflowActivity" />
         <activity android:name=".adapter.jd.JDDetailActivity" />
-        <activity android:name=".refresh.boxcover.KotlinBoxCoverActivity" />
 
 
     </application>

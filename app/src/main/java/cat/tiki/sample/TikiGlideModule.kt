@@ -1,4 +1,4 @@
-package cat.tiki.sample.extendsion
+package cat.tiki.sample
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule

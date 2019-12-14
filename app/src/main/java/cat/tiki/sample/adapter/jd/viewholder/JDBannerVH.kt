@@ -32,6 +32,8 @@ class JDBannerVH: TikiBaseVHImpl<JDBanner>() {
         imgVp.adapter = adapter
         adapter.notifyDataSetChanged()
 
+
+
         // txt content
         val showTitle =
             "<img src='" + R.drawable.drawable_jd_phone + "'>" + "\t<img src='" + R.drawable.drawable_jd_origin + "'>" + "\t<img src='" + R.drawable.drawable_jd_double11+ "'>" + data.title

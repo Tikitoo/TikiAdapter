@@ -51,15 +51,22 @@ class TikiRvAdapter<T: TikiBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TikiBaseVH<T> {
         val rootView = inflater?.inflate(viewType, parent, false)
         val vhImpl = viewHolderBinder?.get(viewType)
-        rootView.setOnClickListener(this)
+//        rootView.setOnClickListener(this)
+
         return TikiBaseVH(rootView, vhImpl)
     }
 
     override fun onBindViewHolder(holder: TikiBaseVH<T>, position: Int) {
         holder?.apply {
             val item = getItem(position)
-            view?.setTag(position)
             bindData(item)
+            view?.setTag(position)
+            holder.view?.setOnClickListener(this@TikiRvAdapter)
+            holder.view?.setTag(position)
+            vhImpl?.clickViewList?.map {
+                it?.setOnClickListener(this@TikiRvAdapter)
+                it?.setTag(position)
+            }
         }
     }
 
@@ -89,7 +96,11 @@ class TikiRvAdapter<T: TikiBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
 
     open fun setRvConfig(isWaterflow: Boolean = false, recyclerView: RecyclerView?) {
         this.isWaterflow = isWaterflow
+
+
+
         recyclerView?.apply {
+//            itemClickListener = TikiItemClickListener(this, this@TikiRvAdapter)
             setHasFixedSize(true)
             if (isWaterflow) {
                 setSatggerLayoutManager(this)

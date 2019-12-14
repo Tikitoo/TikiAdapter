@@ -7,10 +7,21 @@ import android.view.View
  */
 open abstract class TikiBaseVHImpl<T> {
 
+    internal val clickViewList: MutableList<View> = mutableListOf()
     open fun bindData(data: TikiBaseModel, view: View) {
         val data = data as T
         bindData(data, view)
+        setListener()
     }
 
     abstract fun bindData(t: T, view: View)
+
+    open fun setListener() {
+
+    }
+
+    open fun addClickView(clickView: View?) {
+        clickView?.apply { clickViewList?.add(clickView) }
+    }
+
 }

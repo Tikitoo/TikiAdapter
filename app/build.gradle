@@ -13,6 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -35,17 +36,20 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation "androidx.multidex:multidex:$multidex_version"
 
-    implementation(name: 'tikirefresh-0.1.2', ext: 'aar') {
-        exclude group: 'cat.tiki', module: 'tikiadapter'
-    }
+
 
 //    implementation ('cat.tiki:tikirefresh:0.1.2') {
 //        exclude group: 'cat.tiki', module: 'tikiadapter'
 //    }
 
 //    implementation project(':tikiadapter')
-    implementation 'cat.tiki:tikiadapter:0.1.5'
+    implementation(name: 'tikirefresh-0.1.2', ext: 'aar') {
+        exclude group: 'cat.tiki', module: 'tikiadapter'
+    }
+//    implementation 'cat.tiki:tikiadapter:0.1.5'
+    implementation project(path: ':tikiadapter')
 
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -56,15 +60,12 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 
     implementation 'com.github.bumptech.glide:glide:4.9.0'
-//    implementation 'com.github.bumptech.glide:annotations:4.9.0'
-//    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
-
-
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
+//    implementation 'com.github.bumptech.glide:annotations:4.9.0'
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'、
 
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.moshi:moshi-kotlin:1.8.0"
-
 
 
 }

@@ -11,15 +11,15 @@ import cat.tiki.sample.adapter.jd.JDDetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import cat.tiki.sample.adapter.list.TikiCustomListActivity
 import cat.tiki.sample.adapter.waterflow.TikiWaterflowActivity
-import cat.tiki.tikiadapter.TikiItemClickListener
 import cat.tiki.tikiadapter.TikiRvAdapter
 import cat.tiki.sample.extendsion.dip2px
-import cat.tiki.sample.refresh.boxcover.KotlinBoxCoverActivity
+import cat.tiki.tikiadapter.TikiItemClickListener
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.item_main_txt.*
 
 class MainActivity : AppCompatActivity(), TikiItemClickListener {
-    var mainList: MutableList<MainEntity> = arrayListOf()
 
+    private var mainList: MutableList<MainEntity> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,11 +28,10 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
 
         val recyclerView = activity_main_rcv
 
-        mainList = mutableListOf<MainEntity>()
         mainList.add(MainEntity(TYPE_TXt, 3, "网格布局", IntentType.TYPE_GRID))
         mainList.add(MainEntity(TYPE_TXt, 3, "瀑布流布局", IntentType.TYPE_WATERFLOW))
         mainList.add(MainEntity(TYPE_TXt, 3, "京东商品详细页", IntentType.TYPE_JD_DETAIL))
-        mainList.add(MainEntity(TYPE_TXt, 3, "BoxCover", IntentType.TYPE_BOX_COVER))
+//        mainList.add(MainEntity(TYPE_TXt, 3, "BoxCover", IntentType.TYPE_BOX_COVER))
 
         for (mainModel in mainList) {
             mainModel.rect?.apply {
@@ -41,15 +40,18 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
                 side = dip2px(10f)
             }
         }
+
         val tikiRvAdapter = TikiRvAdapter(applicationContext, mainList)
         recyclerView.adapter = tikiRvAdapter
         tikiRvAdapter.setRvConfig(true, recyclerView)
         tikiRvAdapter.registerItem(TYPE_TXt,  MainTxtVH())
-        tikiRvAdapter.setOnItemClick(this)
         tikiRvAdapter.notifyDataSetChanged()
+        tikiRvAdapter.setOnItemClick(this)
     }
 
-    override fun onItemClick(view: View, position: Int) {
+    override fun onItemClick(view: View?, position: Int) {
+        print("onItemClick: view id: " + (view?.id == main_txt_tv?.id))
+        print("onItemClick: view id: " + (view?.id == main_txt_tv2?.id))
         val mainList = mainList?.get(position)
         val intentType = mainList?.intentType
         var cls: Class<Any>? = null
@@ -57,7 +59,7 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
             IntentType.TYPE_GRID -> { cls = TikiCustomListActivity::class.java as Class<Any>?}
             IntentType.TYPE_WATERFLOW -> { cls = TikiWaterflowActivity::class.java as Class<Any>?}
             IntentType.TYPE_JD_DETAIL -> { cls = JDDetailActivity::class.java as Class<Any>?}
-            IntentType.TYPE_BOX_COVER -> { cls = KotlinBoxCoverActivity::class.java as Class<Any>?}
+//            IntentType.TYPE_BOX_COVER -> { cls = KotlinBoxCoverActivity::class.java as Class<Any>?}
         }
 
         val intent = Intent(this, cls)
