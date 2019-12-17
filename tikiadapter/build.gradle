@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-//apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.novoda.bintray-release'
 
 
 android {
@@ -47,14 +47,14 @@ dependencies {
 }
 
 //添加
-/*publish {
+publish {
     userOrg = 'tikitoo'//bintray.com用户名
 //    repoName = 'TikiAdapter'   // bintray上仓库的名字
     groupId = 'cat.tiki'//jcenter上的路径
     artifactId = 'tikiadapter'//项目名称
-    publishVersion = '0.1.5'//版本号
+    publishVersion = '0.1.7'//版本号
     desc = 'It is a simple and easy to use kotlin RecyclerView adapter'// 描述
     website = 'https://github.com/tikitoo/TikiAdapter'//一般填github 项目地址,一定是要有效的地址
-}*/
+}
 
 // ./gradlew clean build bintrayUpload -PbintrayUser=tikitoo -PbintrayKey= -PdryRun=false

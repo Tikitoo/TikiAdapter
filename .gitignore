@@ -4,3 +4,4 @@
 .gradle
 TikiAdapter.iml
 local.properties
+.gradle/

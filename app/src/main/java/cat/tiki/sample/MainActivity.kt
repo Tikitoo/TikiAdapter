@@ -2,6 +2,7 @@ package cat.tiki.sample
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -49,9 +50,15 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
         tikiRvAdapter.setOnItemClick(this)
     }
 
-    override fun onItemClick(view: View?, position: Int) {
-        print("onItemClick: view id: " + (view?.id == main_txt_tv?.id))
-        print("onItemClick: view id: " + (view?.id == main_txt_tv2?.id))
+    override fun onItemClick(view: View, position: Int) {
+        print("position: " + position)
+        if (view.id == main_txt_tv.id) {
+            Log.d("", "id is main_txt_tv: " + position)
+
+        } else if (view.id == main_txt_tv2.id) {
+            Log.d("", "id is main_txt_tv2: " + position)
+
+        }
         val mainList = mainList?.get(position)
         val intentType = mainList?.intentType
         var cls: Class<Any>? = null

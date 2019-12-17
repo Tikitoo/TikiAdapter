@@ -1,6 +1,7 @@
 package cat.tiki.tikiadapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,10 +20,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 class TikiRvAdapter<T: TikiBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
     View.OnClickListener {
 
-    override fun onClick(v: View?) {
-        v?.let {
-            itemClickListener?.onItemClick(it, v?.getTag() as Int)
-        }
+    override fun onClick(v: View) {
+        itemClickListener?.onItemClick(v, v?.getTag(R.id.tiki_rv_item_id) as Int)
     }
 
     private var orientation: Int = RecyclerView.VERTICAL
@@ -52,21 +51,14 @@ class TikiRvAdapter<T: TikiBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
         val rootView = inflater?.inflate(viewType, parent, false)
         val vhImpl = viewHolderBinder?.get(viewType)
 //        rootView.setOnClickListener(this)
-
-        return TikiBaseVH(rootView, vhImpl)
+        return TikiBaseVH(rootView, vhImpl, itemClickListener)
     }
 
     override fun onBindViewHolder(holder: TikiBaseVH<T>, position: Int) {
         holder?.apply {
             val item = getItem(position)
-            bindData(item)
-            view?.setTag(position)
-            holder.view?.setOnClickListener(this@TikiRvAdapter)
-            holder.view?.setTag(position)
-            vhImpl?.clickViewList?.map {
-                it?.setOnClickListener(this@TikiRvAdapter)
-                it?.setTag(position)
-            }
+            bindData(item, position)
+            Log.d("TikiRvAdapter ", "//// pos: " + position + "; data: ")
         }
     }
 
