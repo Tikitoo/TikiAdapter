@@ -16,7 +16,6 @@ class JDCommentImgVH : TikiBaseVHImpl<TikiBaseImg>() {
         var appWidth = getAppWidth(TikiContext.getContext())
         var imgWidth = appWidth / 3.5F
         commentImg.load(data.md5, imgWidth?.toInt(), imgWidth?.toInt())
-
     }
 
 }

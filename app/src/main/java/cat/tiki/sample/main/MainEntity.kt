@@ -1,4 +1,4 @@
-package cat.tiki.sample
+package cat.tiki.sample.main
 
 import cat.tiki.tikiadapter.TikiBaseModel
 
@@ -11,5 +11,4 @@ data class MainEntity(
     var txt: String,
     var intentType: Int
     ): TikiBaseModel() {
-
 }

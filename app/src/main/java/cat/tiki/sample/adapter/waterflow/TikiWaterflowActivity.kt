@@ -13,7 +13,7 @@ import cat.tiki.sample.extendsion.dip2px
  * Created by Yifa Liang on 2019-09-16.
  */
 class TikiWaterflowActivity: AppCompatActivity() {
-    var dataList: MutableList<TikiBaseModel> = arrayListOf()
+    var dataList: MutableList<TikiBaseModel> = mutableListOf()
     lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {

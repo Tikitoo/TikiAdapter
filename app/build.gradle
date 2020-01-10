@@ -48,7 +48,7 @@ dependencies {
     implementation(name: 'tikirefresh-0.1.2', ext: 'aar') {
         exclude group: 'cat.tiki', module: 'tikiadapter'
     }
-//    implementation 'cat.tiki:tikiadapter:0.1.5'
+//    implementation 'cat.tiki:tikiadapter:0.1.7'
     implementation project(path: ':tikiadapter')
 
 

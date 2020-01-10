@@ -1,4 +1,4 @@
-package cat.tiki.sample
+package cat.tiki.sample.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import cat.tiki.sample.R
 import cat.tiki.sample.adapter.jd.JDDetailActivity
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,9 +30,14 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
 
         val recyclerView = activity_main_rcv
 
-        mainList.add(MainEntity(TYPE_TXt, 3, "网格布局", IntentType.TYPE_GRID))
-        mainList.add(MainEntity(TYPE_TXt, 3, "瀑布流布局", IntentType.TYPE_WATERFLOW))
-        mainList.add(MainEntity(TYPE_TXt, 3, "京东商品详细页", IntentType.TYPE_JD_DETAIL))
+        mainList.add(
+            MainEntity(TYPE_TXt, 3, "网格布局", IntentType.TYPE_GRID)
+        )
+        mainList.add(
+            MainEntity(TYPE_TXt,3,"瀑布流布局", IntentType.TYPE_WATERFLOW)
+        )
+        mainList.add(MainEntity(TYPE_TXt,3,"京东商品详细页", IntentType.TYPE_JD_DETAIL)
+        )
 //        mainList.add(MainEntity(TYPE_TXt, 3, "BoxCover", IntentType.TYPE_BOX_COVER))
 
         for (mainModel in mainList) {
@@ -44,20 +50,18 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
 
         val tikiRvAdapter = TikiRvAdapter(applicationContext, mainList)
         recyclerView.adapter = tikiRvAdapter
-        tikiRvAdapter.setRvConfig(true, recyclerView)
-        tikiRvAdapter.registerItem(TYPE_TXt,  MainTxtVH())
-        tikiRvAdapter.notifyDataSetChanged()
-        tikiRvAdapter.setOnItemClick(this)
+        tikiRvAdapter?.apply {
+            setRvConfig(true, recyclerView)
+            registerItem(TYPE_TXt, MainTxtVH())
+            notifyDataSetChanged()
+            setOnItemClick(this@MainActivity)
+        }
     }
 
     override fun onItemClick(view: View, position: Int) {
         print("position: " + position)
         if (view.id == main_txt_tv.id) {
             Log.d("", "id is main_txt_tv: " + position)
-
-        } else if (view.id == main_txt_tv2.id) {
-            Log.d("", "id is main_txt_tv2: " + position)
-
         }
         val mainList = mainList?.get(position)
         val intentType = mainList?.intentType

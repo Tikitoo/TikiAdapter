@@ -21,7 +21,6 @@ class TikiCustomListActivity: AppCompatActivity() {
         setContentView(R.layout.activity_tiki_recycler_view)
         context = applicationContext
 
-
         addModels()
 
         for (kotlinBaseModel in dataList) {
