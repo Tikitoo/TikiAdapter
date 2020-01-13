@@ -74,23 +74,23 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
 	private var mainList: MutableList<MainEntity> = mutableListOf()
 	
 	override fun onCreate(savedInstanceState: Bundle?) {
-	    super.onCreate(savedInstanceState)
+	    	super.onCreate(savedInstanceState)
 	    setContentView(R.layout.activity_main)
 	
-			mainList.add(MainEntity(TYPE_TXT, 3, "网格布局", IntentType.TYPE_GRID))
-	
-			val tikiRvAdapter = TikiRvAdapter(applicationContext, mainList)
-			recyclerView.adapter = tikiRvAdapter
-			tikiRvAdapter?.apply {
-			    // set layoutmanager type, true: grid, false: Satgger
-			    setRvConfig(true, recyclerView)
-                // add item
-                registerItem(TYPE_TXT, MainTxtVH()) 
-                // set On Item Click
-                setOnItemClick(this@MainActivity) 
-                // set data
-                setData(mainList) 
-			}
+		mainList.add(MainEntity(TYPE_TXT, 3, "网格布局", IntentType.TYPE_GRID))
+
+		val tikiRvAdapter = TikiRvAdapter(applicationContext, mainList)
+		recyclerView.adapter = tikiRvAdapter
+		tikiRvAdapter?.apply {
+			// set layoutmanager type, true: grid, false: Satgger
+			setRvConfig(true, recyclerView)
+			// add item
+			registerItem(TYPE_TXT, MainTxtVH()) 
+			// set On Item Click
+			setOnItemClick(this@MainActivity) 
+			// set data
+			setData(mainList) 
+		}
 	}
 
 	override fun onItemClick(view: View, position: Int) {
