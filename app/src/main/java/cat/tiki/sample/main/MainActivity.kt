@@ -51,10 +51,10 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
         val tikiRvAdapter = TikiRvAdapter(applicationContext, mainList)
         recyclerView.adapter = tikiRvAdapter
         tikiRvAdapter?.apply {
-            setRvConfig(true, recyclerView)
-            registerItem(TYPE_TXt, MainTxtVH())
-            notifyDataSetChanged()
-            setOnItemClick(this@MainActivity)
+            setRvConfig(true, recyclerView) // set layoutmanager type
+            registerItem(TYPE_TXt, MainTxtVH()) // add item
+            setOnItemClick(this@MainActivity) // set On Item Click
+            setData(mainList) // set data
         }
     }
 

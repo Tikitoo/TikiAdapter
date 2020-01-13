@@ -74,6 +74,19 @@ class TikiRvAdapter<T: TikiBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
         return dataList?.size
     }
 
+    fun addData(dataList: MutableList<T>) {
+        dataList?.apply {
+            addAll(dataList)
+            notifyDataSetChanged()
+        }
+    }
+
+    fun setData(dataList: MutableList<T>) {
+        this.dataList = dataList
+        notifyDataSetChanged()
+    }
+
+
     open inline fun getItem(position: Int): T {
         if (position >= 0 && position < dataList?.size) {
            return dataList?.get(position)
@@ -88,8 +101,6 @@ class TikiRvAdapter<T: TikiBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
 
     open fun setRvConfig(isWaterflow: Boolean = false, recyclerView: RecyclerView?) {
         this.isWaterflow = isWaterflow
-
-
 
         recyclerView?.apply {
 //            itemClickListener = TikiItemClickListener(this, this@TikiRvAdapter)

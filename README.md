@@ -2,7 +2,9 @@
 
 TikiAdapter is a simple and easy-to-use RecyclerView Adapter written in Kotlin. Probably the easiest to use Adapter.
 
+[中文版](https://github.com/Tikitoo/TikiAdapter/blob/master/README_ZH.md)
 
+<br />
 
 ## Features
 
@@ -18,12 +20,13 @@ TikiAdapter is a simple and easy-to-use RecyclerView Adapter written in Kotlin. 
 
 
 
+<br />
+
 ## Use
 
 
 
-
-
+<br />
 Dependencies
 
 ```json
@@ -31,13 +34,13 @@ implementation 'cat.tiki:tikiadapter:0.1.7'
 ```
 
 
-
+<br />
 Entity: inherited from TikiBaseModel, override layoutId and column
 
 ```kotlin
 data class MainEntity(
-    override var layoutId: Int = 0,
-    override var column: Int = 1,
+    override var layoutId: Int = 0, // item layout id
+    override var column: Int = 1, // 
     var txt: String,
     var intentType: Int
     ): TikiBaseModel() {
@@ -46,6 +49,7 @@ data class MainEntity(
 
 
 
+<br />
 ViewHolder: inherited from TikiBaseVHImpl <T>, override the bindData method
 
 ```kotlin
@@ -60,6 +64,7 @@ class MainTxtVH : TikiBaseVHImpl<MainEntity>() {
 ```
 
 
+<br />
 
 Acitivity / Fragment: Create Adapter, custom properties
 
@@ -72,15 +77,19 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
 	    super.onCreate(savedInstanceState)
 	    setContentView(R.layout.activity_main)
 	
-			mainList.add(MainEntity(TYPE_TXt, 3, "网格布局", IntentType.TYPE_GRID))
+			mainList.add(MainEntity(TYPE_TXT, 3, "网格布局", IntentType.TYPE_GRID))
 	
 			val tikiRvAdapter = TikiRvAdapter(applicationContext, mainList)
 			recyclerView.adapter = tikiRvAdapter
 			tikiRvAdapter?.apply {
+			    // set layoutmanager type, true: grid, false: Satgger
 			    setRvConfig(true, recyclerView)
-			    registerItem(TYPE_TXt, MainTxtVH())
-			    notifyDataSetChanged()
-			    setOnItemClick(this@MainActivity)
+                // add item
+                registerItem(TYPE_TXT, MainTxtVH()) 
+                // set On Item Click
+                setOnItemClick(this@MainActivity) 
+                // set data
+                setData(mainList) 
 			}
 	}
 
@@ -92,6 +101,7 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
 ```
 
 
+<br />
 
 ## Screenshot
 
@@ -100,6 +110,7 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
 
 
 
+<br />
 
 ## License
 

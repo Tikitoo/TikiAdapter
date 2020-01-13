@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
-
 TikiAdapter.iml
 local.properties
 .gradle/
+libs/
+build/

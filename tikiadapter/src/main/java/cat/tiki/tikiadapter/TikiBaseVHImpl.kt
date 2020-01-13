@@ -1,6 +1,5 @@
 package cat.tiki.tikiadapter
 
-import android.util.Log
 import android.view.View
 
 /**
