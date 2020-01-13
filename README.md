@@ -72,11 +72,11 @@ Acitivity / Fragment: Create Adapter, custom properties
 class MainActivity : AppCompatActivity(), TikiItemClickListener {
 
 	private var mainList: MutableList<MainEntity> = mutableListOf()
-	
+
 	override fun onCreate(savedInstanceState: Bundle?) {
-	    	super.onCreate(savedInstanceState)
-	    setContentView(R.layout.activity_main)
-	
+	super.onCreate(savedInstanceState)
+		setContentView(R.layout.activity_main)
+
 		mainList.add(MainEntity(TYPE_TXT, 3, "网格布局", IntentType.TYPE_GRID))
 
 		val tikiRvAdapter = TikiRvAdapter(applicationContext, mainList)
