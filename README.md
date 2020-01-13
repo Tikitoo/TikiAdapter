@@ -70,11 +70,10 @@ Acitivity / Fragment: Create Adapter, custom properties
 
 ```kotlin
 class MainActivity : AppCompatActivity(), TikiItemClickListener {
-
 	private var mainList: MutableList<MainEntity> = mutableListOf()
 
 	override fun onCreate(savedInstanceState: Bundle?) {
-	super.onCreate(savedInstanceState)
+		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 
 		mainList.add(MainEntity(TYPE_TXT, 3, "网格布局", IntentType.TYPE_GRID))
@@ -96,7 +95,7 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
 	override fun onItemClick(view: View, position: Int) {
 
 	}
-
+	
 }
 ```
 
