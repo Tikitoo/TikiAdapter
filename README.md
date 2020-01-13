@@ -91,6 +91,7 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
 			setData(mainList) 
 		}
 	}
+	
 
 	override fun onItemClick(view: View, position: Int) {
 
