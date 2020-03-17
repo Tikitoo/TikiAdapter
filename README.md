@@ -30,7 +30,7 @@ TikiAdapter is a simple and easy-to-use RecyclerView Adapter written in Kotlin. 
 Dependencies
 
 ```json
-implementation 'cat.tiki:tikiadapter:0.1.7'
+implementation 'cat.tiki:tikiadapter:0.1.9'
 ```
 
 
@@ -77,20 +77,20 @@ class MainActivity : AppCompatActivity(), TikiItemClickListener {
 	    super.onCreate(savedInstanceState)
 	    setContentView(R.layout.activity_main)
 	
-			mainList.add(MainEntity(TYPE_TXT, 3, "网格布局", IntentType.TYPE_GRID))
-	
-			val tikiRvAdapter = TikiRvAdapter(applicationContext, mainList)
-			recyclerView.adapter = tikiRvAdapter
-			tikiRvAdapter?.apply {
-			    // set layoutmanager type, true: grid, false: Satgger
-			    setRvConfig(true, recyclerView)
-                // add item
-                registerItem(TYPE_TXT, MainTxtVH()) 
-                // set On Item Click
-                setOnItemClick(this@MainActivity) 
-                // set data
-                setData(mainList) 
-			}
+        mainList.add(MainEntity(TYPE_TXT, 3, "网格布局", IntentType.TYPE_GRID))
+
+        val tikiRvAdapter = TikiRvAdapter(applicationContext, mainList)
+        recyclerView.adapter = tikiRvAdapter
+        tikiRvAdapter?.apply {
+            // set layoutmanager type, true: grid, false: Satgger
+            setRvConfig(true, recyclerView)
+            // add item
+            registerItem(TYPE_TXT, MainTxtVH()) 
+            // set On Item Click
+            setOnItemClick(this@MainActivity) 
+            // set data
+            setData(mainList) 
+        }
 	}
 
 	override fun onItemClick(view: View, position: Int) {

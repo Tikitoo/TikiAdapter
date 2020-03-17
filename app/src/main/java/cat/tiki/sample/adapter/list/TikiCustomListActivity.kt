@@ -28,6 +28,10 @@ class TikiCustomListActivity: AppCompatActivity() {
                 rect.bottom = dip2px(15F)
                 rect.center = dip2px(5F)
                 rect.side = dip2px(10F)
+
+                drawRect?.apply {
+                    bottom = dip2px(6f)
+                }
             }
         }
 

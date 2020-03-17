@@ -121,7 +121,7 @@ class TikiRvAdapter<T: TikiBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
                 layoutManager = lm
             }
             val kotlinBaseItemDecoration =
-                TikiBaseItemDecoration(isWaterflow, this@TikiRvAdapter)
+                TikiBaseItemDecoration(this@TikiRvAdapter.context, isWaterflow, this@TikiRvAdapter)
             addItemDecoration(kotlinBaseItemDecoration)
 
         }

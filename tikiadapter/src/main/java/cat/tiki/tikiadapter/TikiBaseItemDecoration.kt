@@ -1,18 +1,73 @@
 package cat.tiki.tikiadapter
 
+import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Paint
 import android.graphics.Rect
+import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
 /**
  * Created by Yifa Liang on 2019-09-06.
  */
-class TikiBaseItemDecoration<T : TikiBaseModel>(val isWaterflow: Boolean, val rvAdapter: TikiRvAdapter<T>): RecyclerView.ItemDecoration() {
+class TikiBaseItemDecoration<T : TikiBaseModel>(val context: Context, val isWaterflow: Boolean, val rvAdapter: TikiRvAdapter<T>): RecyclerView.ItemDecoration() {
 
     var flagIndex: Int = 0
+    private var mDivider: Drawable? = null
+    var drawPaint = Paint()
+
+    init {
+        drawPaint.setColor(context.getResources().getColor(R.color.tiki_adapter_rv_draw_color))
+        drawPaint.setAntiAlias(true)
+
+    }
+
+    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
+        super.onDrawOver(c, parent, state)
+
+        val left = parent.paddingLeft
+        val right = parent.width - parent.paddingRight
+
+
+        val childCount = parent.childCount
+        for (i in 0 until childCount) {
+            val child = parent.getChildAt(i)
+            val childPosition = parent.getChildAdapterPosition(child)
+            val wrapper: T? = getItemByPosition(childPosition)
+            val params =
+                child.layoutParams as RecyclerView.LayoutParams
+            val topStart: Int = child.top + params.topMargin - wrapper?.drawRect?.top!!
+            val topEnd: Int = child.top + params.topMargin
+
+            val bottomStart = child.bottom + params.bottomMargin
+            val bottomEnd = child.bottom + params.bottomMargin + wrapper?.drawRect?.bottom!!
+            if (wrapper != null) {
+
+                // draw top
+                if (topStart != topEnd) {
+                    c.drawRect(left.toFloat(), topStart.toFloat(), right.toFloat(), topEnd.toFloat(), drawPaint)
+                }
+
+                // draw bottom
+                if (bottomStart != bottomEnd) {
+                    c.drawRect(left.toFloat(), bottomStart.toFloat(), right.toFloat(), bottomEnd.toFloat(), drawPaint)
+                }
+            }
+        }
+    }
+
+    private fun getItemByPosition(childPosition: Int): T? {
+        return rvAdapter?.getItem(childPosition)
+    }
+
+
+    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
+        super.onDraw(c, parent, state)
+    }
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)

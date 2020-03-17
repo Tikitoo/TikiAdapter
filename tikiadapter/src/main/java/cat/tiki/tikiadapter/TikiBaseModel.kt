@@ -15,6 +15,9 @@ open class TikiBaseModel(open var column: Int = 1, open var layoutId: Int = 0) :
 
     open var rect: Rect = Rect(0, 0, 0, 0)
 
+    open var isUseDrawRect = false
+    open var drawRect: Rect = Rect(0, 0, 0, 0)
+
     open var width: Float= 0F
     open var height: Float= 0F
     open var md5: String= ""

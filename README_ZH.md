@@ -30,7 +30,7 @@ TikiAdapter 是一个Kotlin 封装的简洁好用的RecyclerView Adapter。可�
 引用
 
 ```json
-implementation 'cat.tiki:tikiadapter:0.1.7'
+implementation 'cat.tiki:tikiadapter:0.1.8'
 ```
 
 
