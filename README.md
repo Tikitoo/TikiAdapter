@@ -30,7 +30,7 @@ TikiAdapter is a simple and easy-to-use RecyclerView Adapter written in Kotlin. 
 Dependencies
 
 ```json
-implementation 'cat.tiki:tikiadapter:0.1.9'
+implementation 'cat.tiki:tikiadapter:0.2.0'
 ```
 
 

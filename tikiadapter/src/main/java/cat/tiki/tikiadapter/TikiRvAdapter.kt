@@ -5,10 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SimpleItemAnimator
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.*
 
 /**
  * Tiki 封装RecyclerView 通用Adapter
@@ -97,6 +94,15 @@ class TikiRvAdapter<T: TikiBaseModel> : RecyclerView.Adapter<TikiBaseVH<T>>,
 
     open fun setOrientation(orientation: Int) {
         this.orientation = orientation
+    }
+
+
+    open fun setEndLinManager(recyclerView: RecyclerView?) {
+        recyclerView?.apply {
+            val lm = LinearLayoutManager(this@TikiRvAdapter.context, orientation, false)
+            lm.stackFromEnd = true
+            layoutManager = lm
+        }
     }
 
     open fun setRvConfig(isWaterflow: Boolean = false, recyclerView: RecyclerView?) {

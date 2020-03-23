@@ -40,6 +40,7 @@ class TikiCustomListActivity: AppCompatActivity() {
         val rvAdapter = TikiRvAdapter(applicationContext, dataList)
         rvAdapter?.apply {
             recyclerView.adapter = this
+//            setEndLinManager(recyclerView)
             setRvConfig(false, recyclerView)
             registerItem(R.layout.item_customlist_text,
                 TikiCustomListTxtVH()
